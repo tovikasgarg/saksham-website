@@ -1,139 +1,303 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAKSHAM Admission Guidance | Reputed Universities</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { background-color: #0a0e14; color: #e2e8f0; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .hero-gradient { background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0e14 100%); }
-        .card-blur { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .btn-primary { background-color: #3b82f6; transition: all 0.3s ease; }
-        .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); }
-        .accent-border { border-left: 4px solid #10b981; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saksham India - Empowering Careers</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f7fb;
+    padding-top: 60px; /* space for banner */
+}
+
+/* TOP BANNER */
+.top-banner {
+    width: 100%;
+    background: linear-gradient(90deg, #16a34a, #22c55e);
+    color: white;
+    text-align: center;
+    padding: 10px 40px;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideDown 0.5s ease;
+}
+
+.top-banner button {
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* HERO */
+.hero {
+    height: 60vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    transition: 1s ease-in-out;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+/* TAGLINE */
+.tagline {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* GLOW EFFECT */
+.glow {
+    background: linear-gradient(90deg, #facc15, #fde68a);
+    color: #000;
+    padding: 4px 10px;
+    border-radius: 6px;
+    animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 5px rgba(250, 204, 21, 0.5),
+                    0 0 10px rgba(250, 204, 21, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(250, 204, 21, 0.9),
+                    0 0 25px rgba(250, 204, 21, 0.7);
+    }
+}
+
+/* FORM */
+.container {
+    max-width: 500px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.success {
+    display: none;
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* FEATURES */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    gap: 20px;
+}
+
+.card {
+    width: 250px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 10px;
+}
+
+.card p {
+    padding: 0 10px 15px;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #1e3a8a;
+    color: white;
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header class="p-6 flex justify-center items-center max-w-7xl mx-auto">
-        <div class="text-3xl font-bold text-blue-500 uppercase tracking-widest">SAKSHAM</div>
-    </header>
+<!-- TOP BANNER -->
+<div class="top-banner" id="topBanner">
+    <span>
+        📢 We Provide Support in getting jobs for Graduate and Under Graduate freshers free of charge, 
+        Please register by providing details for searching a suitable job for you
+    </span>
+    <button onclick="closeBanner()">✖</button>
+</div>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient min-h-[70vh] flex flex-col justify-center items-center text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Secure Admission in <span class="text-blue-500">Reputed</span> <br>Universities
-        </h1>
-        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-8">
-            Expert guidance for Online and Offline UG/PG degrees. We simplify your application, shortlisting, and enrollment process.
+<!-- HERO -->
+<div class="hero" id="hero">
+    <div class="hero-content">
+        <h1>Saksham India</h1>
+        <p class="tagline">
+            <span class="glow">First Dedicated Portal</span> for Job Search Support <br>
+            for <span class="glow">Graduate and Undergraduate Freshers</span>
         </p>
-        <div class="flex flex-col md:flex-row gap-4">
-            <a href="#contact" class="btn-primary px-10 py-4 rounded-lg font-bold text-lg">Get Free Counseling</a>
-        </div>
-        <div class="mt-12 flex gap-10 grayscale opacity-50 overflow-hidden justify-center items-center">
-            <span class="font-bold text-xl uppercase tracking-widest">UGC</span>
-            <span class="font-bold text-xl uppercase tracking-widest">AICTE</span>
-            <span class="font-bold text-xl uppercase tracking-widest">NAAC A+</span>
-        </div>
-    </section>
+    </div>
+</div>
 
-    <!-- Paths Section -->
-    <section class="max-w-7xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10">
-        <div class="card-blur p-8 rounded-2xl accent-border">
-            <h3 class="text-2xl font-bold mb-4 text-emerald-400">Undergraduate Programs</h3>
-            <p class="text-slate-400 mb-6">Transitioning from school? We help you find the best campus culture and high-placement degrees.</p>
-            <ul class="text-sm space-y-2 text-slate-300">
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> Top Engineering & Arts Colleges</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> Entrance Exam Support</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> Scholarship Assistance</li>
-            </ul>
-        </div>
-        <div class="card-blur p-8 rounded-2xl border-l-4 border-blue-500">
-            <h3 class="text-2xl font-bold mb-4 text-blue-400">Postgraduate Programs</h3>
-            <p class="text-slate-400 mb-6">Looking for a career hike? Explore reputed Online and Offline Master's degrees from leaders.</p>
-            <ul class="text-sm space-y-2 text-slate-300">
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> Flexible Online Learning</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> Executive Programs</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> Networking Opportunities</li>
-            </ul>
-        </div>
-    </section>
+<!-- FORM -->
+<div class="container">
+    <h2>Register for Job Support</h2>
 
-    <!-- Process Section -->
-    <section class="py-20 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-16">The Admission Journey</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="text-4xl text-blue-500 font-bold mb-4">01</div>
-                    <h4 class="font-bold mb-2">Evaluation</h4>
-                    <p class="text-sm text-slate-400">Free profile review to understand your goals.</p>
-                </div>
-                <div>
-                    <div class="text-4xl text-blue-500 font-bold mb-4">02</div>
-                    <h4 class="font-bold mb-2">Shortlisting</h4>
-                    <p class="text-sm text-slate-400">Matching you with top accredited universities.</p>
-                </div>
-                <div>
-                    <div class="text-4xl text-blue-500 font-bold mb-4">03</div>
-                    <h4 class="font-bold mb-2">Documentation</h4>
-                    <p class="text-sm text-slate-400">End-to-end help with forms and essays.</p>
-                </div>
-                <div>
-                    <div class="text-4xl text-blue-500 font-bold mb-4">04</div>
-                    <h4 class="font-bold mb-2">Enrollment</h4>
-                    <p class="text-sm text-slate-400">Securing your seat and welcome kit.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <form id="form">
+        <input type="text" placeholder="Full Name" id="name" required>
+        <input type="text" placeholder="District" id="district" required>
+        <input type="tel" placeholder="Mobile Number" id="mobile" required pattern="[0-9]{10}">
+        <input type="email" placeholder="Email ID" id="email" required>
 
-    <!-- Lead Form -->
-    <section id="contact" class="max-w-3xl mx-auto py-20 px-6">
-        <div class="card-blur p-10 rounded-3xl shadow-2xl">
-            <h2 class="text-3xl font-bold text-center mb-8">Book Free Counseling</h2>
-            
-            <!-- FORM INTEGRATED WITH FORMSPREE -->
-            <form action="https://formspree.io/f/xbdqylek" method="POST" class="space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Full Name</label>
-                        <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 outline-none focus:border-blue-500" placeholder="Enter Name">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Mobile Number</label>
-                        <input type="tel" name="phone" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 outline-none focus:border-blue-500" placeholder="+91 ...">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-2">Interested Degree</label>
-                    <select name="degree" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 outline-none focus:border-blue-500">
-                        <option value="B.A">B.A</option>
-                        <option value="B.Com">B.Com</option>
-                        <option value="M.A">M.A</option>
-                        <option value="M.Com">M.Com</option>
-                        <option value="BBA">BBA</option>
-                        <option value="MBA">MBA</option>
-                        <option value="MCA">MCA</option>
-                        <option value="B.Tech">B Tech</option>
-                        <option value="BCA">BCA</option>
-                        <option value="B.Lib">B. Lib</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full btn-primary py-4 rounded-lg font-bold text-lg shadow-lg shadow-blue-500/20">Apply Now</button>
-                <p class="text-xs text-slate-500 text-center uppercase tracking-widest">Confidential & Secure | 100% Data Privacy</p>
-            </form>
-        </div>
-    </section>
+        <select id="education" required>
+            <option value="">Select Education</option>
+            <option>Under Graduate</option>
+            <option>Graduate</option>
+        </select>
 
-    <!-- Footer -->
-    <footer class="p-10 border-t border-slate-800 text-center text-slate-500 text-sm">
-        <p>&copy; 2026 SAKSHAM Guidance Services. Partnering with UGC/AICTE Accredited Universities.</p>
-    </footer>
+        <button type="submit">Submit</button>
+        <div class="success" id="success">✅ Registered Successfully!</div>
+    </form>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+        <h3>Skill Development</h3>
+        <p>Helping youth become job-ready</p>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df">
+        <h3>Job Opportunities</h3>
+        <p>Connecting candidates with employers</p>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+        <h3>Digital India Vision</h3>
+        <p>Supporting India's employment growth</p>
+    </div>
+</div>
+
+<footer>
+    © 2026 Saksham India | Empowering Youth 🚀
+</footer>
+
+<script>
+// HERO IMAGE ROTATION
+const images = [
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+];
+
+let i = 0;
+const hero = document.getElementById("hero");
+
+function changeImage() {
+    hero.style.backgroundImage = `url(${images[i]})`;
+    i = (i + 1) % images.length;
+}
+
+setInterval(changeImage, 3000);
+changeImage();
+
+// FORM HANDLING
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let data = {
+        name: name.value,
+        district: district.value,
+        mobile: mobile.value,
+        email: email.value,
+        education: education.value
+    };
+
+    let users = JSON.parse(localStorage.getItem("sakshamUsers")) || [];
+    users.push(data);
+    localStorage.setItem("sakshamUsers", JSON.stringify(users));
+
+    document.getElementById("success").style.display = "block";
+    this.reset();
+});
+
+// CLOSE BANNER
+function closeBanner() {
+    document.getElementById("topBanner").style.display = "none";
+}
+</script>
 
 </body>
 </html>
