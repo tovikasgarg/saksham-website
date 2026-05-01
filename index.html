@@ -217,14 +217,14 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbx7ub31vtc4HY7FO6TFmE
 document.getElementById("form").addEventListener("submit", function(e){
 e.preventDefault();
 
-loading.style.display = "block";
+document.getElementById("loading").style.display = "block";
 
 let data = {
-name: name.value,
-district: district.value,
-mobile: mobile.value,
-email: email.value,
-education: education.value
+    name: document.getElementById("name").value,
+    district: document.getElementById("district").value,
+    mobile: document.getElementById("mobile").value,
+    email: document.getElementById("email").value,
+    education: document.getElementById("education").value
 };
 
 fetch(scriptURL, {
@@ -233,12 +233,12 @@ body: JSON.stringify(data)
 })
 .then(res => res.json())
 .then(() => {
-loading.style.display = "none";
-success.style.display = "block";
-form.reset();
+document.getElementById("loading").style.display = "none";
+document.getElementById("success").style.display = "block";
+document.getElementById("form").reset();
 })
-.catch(err => {
-loading.style.display = "none";
+.catch(() => {
+document.getElementById("loading").style.display = "none";
 alert("Error submitting form");
 });
 });
