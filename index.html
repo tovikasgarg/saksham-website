@@ -23,28 +23,20 @@ body {
     font-size: 14px;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: slideDown 0.5s ease;
 }
 
 .top-banner button {
     position: absolute;
     right: 15px;
-    top: 8px;
     background: transparent;
     border: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
 }
 
 /* HERO */
@@ -57,7 +49,6 @@ body {
     text-align: center;
     background-size: cover;
     background-position: center;
-    transition: 1s ease-in-out;
     position: relative;
 }
 
@@ -73,19 +64,12 @@ body {
     z-index: 1;
 }
 
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
 /* TAGLINE */
 .tagline {
     font-size: 20px;
     font-weight: 700;
-    line-height: 1.5;
 }
 
-/* GLOW EFFECT */
 .glow {
     background: linear-gradient(90deg, #facc15, #fde68a);
     color: #000;
@@ -95,14 +79,8 @@ body {
 }
 
 @keyframes glowPulse {
-    0% {
-        box-shadow: 0 0 5px rgba(250, 204, 21, 0.5),
-                    0 0 10px rgba(250, 204, 21, 0.4);
-    }
-    100% {
-        box-shadow: 0 0 15px rgba(250, 204, 21, 0.9),
-                    0 0 25px rgba(250, 204, 21, 0.7);
-    }
+    0% { box-shadow: 0 0 5px rgba(250,204,21,0.5);}
+    100% { box-shadow: 0 0 20px rgba(250,204,21,0.9);}
 }
 
 /* FORM */
@@ -112,15 +90,12 @@ body {
     background: white;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 input, select {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
 }
 
 button {
@@ -130,12 +105,6 @@ button {
     background: #2563eb;
     color: white;
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #1d4ed8;
 }
 
 .success {
@@ -145,36 +114,31 @@ button:hover {
     margin-top: 10px;
 }
 
+.loading {
+    display: none;
+    text-align: center;
+    color: #2563eb;
+}
+
 /* FEATURES */
 .features {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    padding: 30px;
+    flex-wrap: wrap;
     gap: 20px;
+    padding: 30px;
 }
 
 .card {
     width: 250px;
     background: white;
     border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card img {
     width: 100%;
     height: 150px;
     object-fit: cover;
-}
-
-.card h3 {
-    padding: 10px;
-}
-
-.card p {
-    padding: 0 10px 15px;
-    font-size: 14px;
 }
 
 footer {
@@ -188,116 +152,112 @@ footer {
 
 <body>
 
-<!-- TOP BANNER -->
+<!-- BANNER -->
 <div class="top-banner" id="topBanner">
-    <span>
-        📢 We Provide Support in getting jobs for Graduate and Under Graduate freshers free of charge, 
-        Please register by providing details for searching a suitable job for you
-    </span>
-    <button onclick="closeBanner()">✖</button>
+📢 We Provide Support in getting jobs for Graduate and Under Graduate freshers free of charge
+<button onclick="closeBanner()">✖</button>
 </div>
 
 <!-- HERO -->
 <div class="hero" id="hero">
-    <div class="hero-content">
-        <h1>Saksham India</h1>
-        <p class="tagline">
-            <span class="glow">First Dedicated Portal</span> for Job Search Support <br>
-            for <span class="glow">Graduate and Undergraduate Freshers</span>
-        </p>
-    </div>
+<div class="hero-content">
+<h1>Saksham India</h1>
+<p class="tagline">
+<span class="glow">First Dedicated Portal</span> for Job Search Support <br>
+for <span class="glow">Graduate and Undergraduate Freshers</span>
+</p>
+</div>
 </div>
 
 <!-- FORM -->
 <div class="container">
-    <h2>Register for Job Support</h2>
+<h2>Register</h2>
 
-    <form id="form">
-        <input type="text" placeholder="Full Name" id="name" required>
-        <input type="text" placeholder="District" id="district" required>
-        <input type="tel" placeholder="Mobile Number" id="mobile" required pattern="[0-9]{10}">
-        <input type="email" placeholder="Email ID" id="email" required>
+<form id="form">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="text" id="district" placeholder="District" required>
+<input type="tel" id="mobile" placeholder="Mobile Number" required>
+<input type="email" id="email" placeholder="Email ID" required>
 
-        <select id="education" required>
-            <option value="">Select Education</option>
-            <option>Under Graduate</option>
-            <option>Graduate</option>
-            <option>ITI/Diploma</option>
-            <option>Engineering Degree Graduate</option>
-        </select>
+<select id="education" required>
+<option value="">Select Education</option>
+<option>Under Graduate</option>
+<option>Graduate</option>
+<option>ITI/Diploma</option>
+<option>Engineering Degree Graduate</option>
+</select>
 
-        <button type="submit">Submit</button>
-        <div class="success" id="success">✅ Registered Successfully!</div>
-    </form>
+<button type="submit">Submit</button>
+
+<div class="loading" id="loading">Submitting...</div>
+<div class="success" id="success">✅ Registered Successfully!</div>
+</form>
 </div>
 
 <!-- FEATURES -->
 <div class="features">
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
-        <h3>Skill Development</h3>
-        <p>Helping youth become job-ready</p>
-    </div>
-
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df">
-        <h3>Job Opportunities</h3>
-        <p>Connecting candidates with employers</p>
-    </div>
-
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
-        <h3>Digital India Vision</h3>
-        <p>Supporting India's employment growth</p>
-    </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+<h3>Skill Development</h3>
 </div>
 
-<footer>
-    © 2026 Saksham India | Empowering Youth 🚀
-</footer>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df">
+<h3>Job Opportunities</h3>
+</div>
+</div>
+
+<footer>© 2026 Saksham India</footer>
 
 <script>
-// HERO IMAGE ROTATION
+// GOOGLE SHEET URL
+const scriptURL = "https://script.google.com/macros/s/AKfycbx7ub31vtc4HY7FO6TFmEGkiYPox6Rx8JZoyB9cbWj5mUZcPNArC4OneI3TJDJZ5BE/exec";
+
+// FORM SUBMIT
+document.getElementById("form").addEventListener("submit", function(e){
+e.preventDefault();
+
+loading.style.display = "block";
+
+let data = {
+name: name.value,
+district: district.value,
+mobile: mobile.value,
+email: email.value,
+education: education.value
+};
+
+fetch(scriptURL, {
+method: "POST",
+body: JSON.stringify(data)
+})
+.then(res => res.json())
+.then(() => {
+loading.style.display = "none";
+success.style.display = "block";
+form.reset();
+})
+.catch(err => {
+loading.style.display = "none";
+alert("Error submitting form");
+});
+});
+
+// HERO IMAGES
 const images = [
-    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
-    "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+"https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+"https://images.unsplash.com/photo-1519389950473-47ba0277781c"
 ];
 
 let i = 0;
-const hero = document.getElementById("hero");
-
-function changeImage() {
-    hero.style.backgroundImage = `url(${images[i]})`;
-    i = (i + 1) % images.length;
-}
-
-setInterval(changeImage, 3000);
-changeImage();
-
-// FORM HANDLING
-document.getElementById("form").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    let data = {
-        name: name.value,
-        district: district.value,
-        mobile: mobile.value,
-        email: email.value,
-        education: education.value
-    };
-
-    let users = JSON.parse(localStorage.getItem("sakshamUsers")) || [];
-    users.push(data);
-    localStorage.setItem("sakshamUsers", JSON.stringify(users));
-
-    document.getElementById("success").style.display = "block";
-    this.reset();
-});
+setInterval(()=>{
+document.getElementById("hero").style.backgroundImage = `url(${images[i]})`;
+i = (i+1)%images.length;
+},3000);
 
 // CLOSE BANNER
-function closeBanner() {
-    document.getElementById("topBanner").style.display = "none";
+function closeBanner(){
+document.getElementById("topBanner").style.display="none";
 }
 </script>
 
